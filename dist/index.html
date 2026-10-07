@@ -9,7 +9,18 @@
   <meta property="og:description" content="Poetry, paper hearts, and a little place to feel everything.">
   <link rel="icon" href="assets/flower.svg" type="image/svg+xml">
   <link rel="preload" href="assets/lora.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css"><script src="transitions.js" defer></script><script src="app.js" defer></script>
+  <link rel="preload" href="assets/caveat.woff2" as="font" type="font/woff2" crossorigin>
+  <style>html.intro-pending{overflow:hidden}html.intro-pending #journal-page{visibility:hidden}</style>
+  <script>
+    document.documentElement.classList.add('intro-pending');
+    window.journalIntroFallback = setTimeout(function () {
+      window.dispatchEvent(new Event('journal-intro-timeout'));
+      document.documentElement.classList.remove('intro-pending', 'intro-active', 'intro-revealing');
+      var page = document.getElementById('journal-page');
+      if (page) page.inert = false;
+    }, 12000);
+  </script>
+  <link rel="stylesheet" href="styles.css"><script src="intro.js" defer></script><script src="transitions.js" defer></script><script src="app.js" defer></script>
 </head>
 <body>
 <svg class="svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
@@ -17,7 +28,8 @@
  <symbol id="bow" viewBox="0 0 200 160"><g stroke="currentColor" stroke-width="2" fill="#efd0d8"><path d="M97 64C56 5 12 8 20 43C27 80 63 90 97 69C67 78 49 55 32 31C67 40 84 50 97 64Z"/><path d="M102 64C141 5 188 8 180 43C173 80 137 90 102 69C133 78 151 55 168 31C133 40 117 50 102 64Z"/><path d="M90 73C79 113 52 144 36 149L48 119L34 112C62 109 75 88 90 73Z"/><path d="M111 73C122 114 147 144 163 149L151 119L165 112C138 109 126 88 111 73Z"/><path d="M91 59Q100 54 109 60L112 77Q102 84 89 77Z"/></g></symbol>
  <symbol id="star" viewBox="0 0 32 32"><path d="M16 1L19 12L31 16L19 19L16 31L12 19L1 16L12 12Z" fill="currentColor"/></symbol>
  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12H20M14 6L20 12L14 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-</defs></svg>
+</defs><symbol id="intro-flower" viewBox="0 0 100 100"><g fill="currentColor"><ellipse cx="50" cy="30" rx="15" ry="24" opacity=".8"/><ellipse cx="50" cy="30" rx="15" ry="24" transform="rotate(60 50 50)" opacity=".9"/><ellipse cx="50" cy="30" rx="15" ry="24" transform="rotate(120 50 50)" opacity=".75"/><ellipse cx="50" cy="30" rx="15" ry="24" transform="rotate(180 50 50)" opacity=".9"/><ellipse cx="50" cy="30" rx="15" ry="24" transform="rotate(240 50 50)" opacity=".8"/><ellipse cx="50" cy="30" rx="15" ry="24" transform="rotate(300 50 50)" opacity=".95"/></g><circle cx="50" cy="50" r="10" fill="#d3b578"/><circle cx="47" cy="47" r="3" fill="#f8e8be"/></symbol></svg>
+<div id="journal-page">
 <a class="skip" href="#main">Skip to the journal</a>
 <div class="preview-note">A little design preview <span>✧</span> Letters stay with you; reader notes are samples.</div>
 <header class="site-header">
@@ -77,6 +89,8 @@
 <dialog id="signed-dialog" aria-labelledby="signed-title"><button class="dialog-close" aria-label="Close signed copy details">×</button><svg class="dialog-bow" aria-hidden="true"><use href="#bow"/></svg><span class="eyebrow">A LITTLE MORE PERSONAL</span><h2 id="signed-title">A signed <em>keepsake.</em></h2><p>The reference mentions signed copies, but its order link hasn’t been added. You can prepare a dedication note to keep for later.</p><label for="dedication">WHO WOULD YOU LIKE IT MADE OUT TO?</label><input id="dedication" maxlength="100" placeholder="A name, a nickname, someone lovely"><button class="button primary" id="dedication-download">Keep my dedication note <span>♡</span></button><p class="fine-print">This saves a text file. It does not place an order.</p></dialog>
 <dialog id="sealed-dialog" aria-labelledby="sealed-title"><button class="dialog-close" aria-label="Close your sealed letter">×</button><div class="sealed-icon" aria-hidden="true">♡</div><span class="eyebrow">A LITTLE PIECE OF YOU</span><h2 id="sealed-title">Your words,<br><em>tucked away.</em></h2><p>Your letter is ready to keep. Download it below; it hasn’t been sent or saved online.</p><button class="button primary" id="download-letter">Download my letter <span>↓</span></button><p class="fine-print">Close this window to keep writing.</p></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div><div id="petals" class="petal-layer" aria-hidden="true"></div>
-<div class="journal-curtain" aria-hidden="true"><div class="journal-leaf leaf-left"></div><div class="journal-leaf leaf-right"></div><div class="journal-welcome"><svg><use href="#bow"/></svg><span class="hand">a little world, just for you</span><span class="welcome-flowers">✿ ♡ ✧</span></div></div>
+</div>
+<div id="journal-intro" class="intro-screen" aria-label="Opening Hishika’s journal"><div class="intro-paper" aria-hidden="true"></div><div class="intro-garden" aria-hidden="true"></div><button class="intro-skip" type="button">Skip intro <span aria-hidden="true">↗</span></button></div>
+<div class="journal-curtain" aria-hidden="true"><div class="journal-leaf leaf-left"></div><div class="journal-leaf leaf-right"></div></div>
 <div id="tap-sparkles" class="tap-sparkles" aria-hidden="true"></div>
 </body></html>

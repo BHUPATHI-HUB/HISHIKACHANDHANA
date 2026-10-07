@@ -13,7 +13,7 @@
   const canAnimate = () => !motion.matches && !savedPause && !body.classList.contains('motion-paused');
   function resetPage() {
     clearTimeout(pageTimer);
-    body.classList.remove('journal-entering', 'journal-leaving');
+    body.classList.remove('journal-leaving');
     refresh.disabled = false;
   }
   function completeExit() {
@@ -48,6 +48,7 @@
   }
   function settle(paused = savedPause) {
     savedPause = paused;
+    window.journalIntro?.finish();
     resetPage();
     if (afterExit) completeExit();
     dialogClosings.forEach((timer, dialog) => {
@@ -59,10 +60,6 @@
     document.querySelectorAll('.tap-sparkle').forEach((petal) => petal.remove());
   }
   window.journalTransitions = { closeDialog, settle };
-  if (canAnimate()) {
-    body.classList.add('journal-entering');
-    pageTimer = setTimeout(resetPage, 300);
-  }
   motion.addEventListener('change', () => { if (motion.matches) settle(); });
   window.addEventListener('pageshow', (event) => {
     if (event.persisted) { afterExit = null; settle(); }
@@ -79,7 +76,7 @@
   });
 
   function scatter(x, y, host) {
-    if (!canAnimate()) return;
+    if (!canAnimate() || window.journalIntro?.active) return;
     // Dialogs live above the document's stacking layers; keep their sparkles inside them.
     const rect = host === sparkles ? { left: 0, top: 0 } : host.getBoundingClientRect();
     for (let i = 0; i < 3; i++) {

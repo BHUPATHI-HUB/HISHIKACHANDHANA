@@ -30,14 +30,14 @@ $('#theme-toggle').addEventListener('click', () => {
   const evening = !document.body.classList.contains('evening');
   setTheme(evening); storage.set('theme', evening ? 'evening' : 'morning');
 });
-function setMotion(paused) {
+function setMotion(paused, initial = false) {
   document.body.classList.toggle('motion-paused', paused);
   document.documentElement.classList.toggle('motion-paused', paused);
-  if (paused) window.journalTransitions.settle(true);
+  if (paused && !initial) window.journalTransitions.settle(true);
   $('#motion-toggle').setAttribute('aria-pressed', String(paused));
   $('#motion-toggle').textContent = paused ? 'Resume the little animations' : 'Pause the little animations';
 }
-setMotion(storage.get('motion') === 'paused');
+setMotion(storage.get('motion') === 'paused', true);
 $('#motion-toggle').addEventListener('click', () => {
   const paused = !document.body.classList.contains('motion-paused');
   setMotion(paused); storage.set('motion', paused ? 'paused' : 'playing');
