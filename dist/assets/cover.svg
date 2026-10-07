@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" role="img" aria-label="Illustrated placeholder of the Us, Unscripted cover: nine small painted panels around a beige paper label">
+  <!-- PLACEHOLDER ONLY. Replace with the real cover photo at assets/images/us-unscripted-cover.jpg -->
+  <defs>
+    <linearGradient id="sunset" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7B58C"/><stop offset=".55" stop-color="#F4B6C9"/><stop offset="1" stop-color="#7A6A86"/></linearGradient>
+    <linearGradient id="fire" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#E9805E"/><stop offset=".6" stop-color="#F6C27A"/><stop offset="1" stop-color="#5E5468"/></linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9D3EE"/><stop offset="1" stop-color="#F9D5E5"/></linearGradient>
+    <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="n"/><feColorMatrix in="n" type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .08"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  </defs>
+  <rect width="600" height="900" fill="#3E3848"/>
+  <!-- row 1 -->
+  <g>
+    <rect x="12" y="12" width="186" height="282" fill="#E9D7C4"/>
+    <ellipse cx="105" cy="150" rx="70" ry="34" fill="#fff"/><circle cx="105" cy="150" r="27" fill="#6C8FB0"/><circle cx="105" cy="150" r="12" fill="#2E2A36"/><circle cx="113" cy="142" r="5" fill="#fff"/>
+    <path d="M32 140c30-34 116-34 146 0" fill="none" stroke="#5B4A44" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g>
+    <rect x="207" y="12" width="186" height="282" fill="#F2C9B6"/>
+    <path d="M240 260c-6-60 10-120 40-150 10-10 22-2 18 12l-12 50 40-70c6-10 22-4 18 8l-28 70 46-56c8-8 20 0 14 12l-46 70 34-24c10-6 18 6 10 14-30 30-50 60-60 74Z" fill="#E7A88F" stroke="#B87563" stroke-width="3"/>
+  </g>
+  <g>
+    <rect x="402" y="12" width="186" height="282" fill="url(#sky)"/>
+    <rect x="440" y="58" width="110" height="160" fill="#FFF9FB" stroke="#7A6A86" stroke-width="6"/>
+    <path d="M495 58v160M440 138h110" stroke="#7A6A86" stroke-width="5"/>
+    <rect x="428" y="218" width="134" height="14" fill="#7A6A86"/>
+  </g>
+  <!-- row 2 -->
+  <g>
+    <rect x="12" y="303" width="186" height="294" fill="url(#sunset)"/>
+    <path d="M12 520l70-60v137H12Z" fill="#4A4458"/><path d="M198 500l-60-40v137h60Z" fill="#4A4458"/>
+    <circle cx="105" cy="430" r="26" fill="#FFE7C8"/><path d="M82 597l18-110h10l18 110Z" fill="#5E5468"/>
+  </g>
+  <g>
+    <rect x="402" y="303" width="186" height="294" fill="url(#fire)"/>
+    <rect x="436" y="430" width="118" height="167" fill="#4A4458"/>
+    <path d="M436 430l59-50 59 50Z" fill="#3E3848"/>
+    <g fill="#F6C27A"><rect x="452" y="460" width="22" height="26"/><rect x="514" y="460" width="22" height="26"/><rect x="452" y="510" width="22" height="26"/></g>
+    <path d="M460 430c-10-50 20-60 14-96 26 26 40 50 22 96 16-22 34-30 30-60 20 30 18 50 8 60Z" fill="#E9805E" opacity=".9"/>
+  </g>
+  <!-- row 3 -->
+  <g>
+    <rect x="12" y="606" width="186" height="282" fill="#CFE0D2"/>
+    <rect x="34" y="640" width="142" height="80" fill="#3F5A4E"/>
+    <path d="M52 668h60M52 690h90" stroke="#fff" stroke-width="3" opacity=".8"/>
+    <g fill="#B98E6E"><rect x="40" y="780" width="50" height="10"/><rect x="118" y="780" width="50" height="10"/><rect x="40" y="836" width="50" height="10"/><rect x="118" y="836" width="50" height="10"/></g>
+  </g>
+  <g>
+    <rect x="207" y="606" width="186" height="282" fill="#E8D3C8"/>
+    <rect x="207" y="606" width="186" height="190" fill="#C9B2A6"/>
+    <path d="M207 650h186M207 700h186M207 750h186M260 606v190M330 606v190" stroke="#B49C90" stroke-width="3"/>
+    <circle cx="300" cy="760" r="20" fill="#5B4A44"/><path d="M276 888c0-60 8-100 24-110 16 10 24 50 24 110Z" fill="#F4B6C9"/>
+  </g>
+  <g>
+    <rect x="402" y="606" width="186" height="282" fill="#B7C4F0"/>
+    <path d="M402 780c40-30 80-30 120-10s50 10 66 0v118H402Z" fill="#86AE9F"/>
+    <g fill="#F9D5E5"><circle cx="440" cy="800" r="9"/><circle cx="500" cy="820" r="9"/><circle cx="550" cy="796" r="9"/></g>
+  </g>
+  <!-- centre label -->
+  <g filter="url(#paper)">
+    <rect x="207" y="303" width="186" height="294" fill="#3E3848"/>
+    <rect x="214" y="330" width="172" height="240" fill="#F3E7D3" transform="rotate(-1.5 300 450)"/>
+  </g>
+  <g transform="rotate(-1.5 300 450)" font-family="Georgia, 'Times New Roman', serif" fill="#3E3848" text-anchor="middle">
+    <text x="300" y="420" font-size="34" font-style="italic">Us,</text>
+    <text x="300" y="458" font-size="34" font-style="italic">unscripted</text>
+    <text x="300" y="492" font-size="15" font-style="italic">– a poetry collection</text>
+    <text x="300" y="548" font-size="17" font-style="italic">Hishika Chandan~</text>
+  </g>
+</svg>
