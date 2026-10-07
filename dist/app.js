@@ -99,19 +99,34 @@ const message = $('#letter-message');
 function countCharacters() { $('#character-count').textContent = message.value.length.toLocaleString('en-IN') + ' / 4,000'; }
 message.addEventListener('input', () => { countCharacters(); message.setCustomValidity(''); });
 const rawDraft = storage.get('draft');
+let restoredDraft = false;
 if (rawDraft) {
   try {
     const draft = JSON.parse(rawDraft);
     if (draft && typeof draft.message === 'string' && typeof draft.name === 'string') {
       message.value = draft.message.slice(0, 4000); $('#letter-name').value = draft.name.slice(0, 100);
+      restoredDraft = true;
       if (typeof draft.type === 'string' && Array.from($('#letter-type').options).some((option) => option.value === draft.type)) $('#letter-type').value = draft.type;
       $('#draft-status').textContent = 'Your saved draft is here. It stays on this device.';
     }
   } catch { /* An invalid stored draft leaves the writing space empty. */ }
 }
 countCharacters();
+const draftButton = $('#save-draft');
+const draftSnapshot = () => JSON.stringify({ type: $('#letter-type').value, message: message.value, name: $('#letter-name').value });
+let lastSavedDraft = restoredDraft ? draftSnapshot() : null;
+if (lastSavedDraft) draftButton.textContent = 'Update saved draft';
+function updateDraftStatus() {
+  const unchanged = lastSavedDraft === draftSnapshot();
+  const status = unchanged ? 'Your saved draft is up to date. Nothing has been sent.' : 'Your edits aren’t saved yet. Save a draft to keep them on this device.';
+  if ($('#draft-status').textContent !== status) $('#draft-status').textContent = status;
+  draftButton.textContent = unchanged ? 'Update saved draft' : 'Save changes';
+}
+form.addEventListener('input', updateDraftStatus);
+form.addEventListener('change', updateDraftStatus);
 $('#save-draft').addEventListener('click', () => {
-  const saved = storage.set('draft', JSON.stringify({ type: $('#letter-type').value, message: message.value, name: $('#letter-name').value }));
+  const saved = storage.set('draft', draftSnapshot());
+  if (saved) { lastSavedDraft = draftSnapshot(); draftButton.textContent = 'Draft saved ♡'; }
   $('#draft-status').textContent = saved ? 'Draft saved on this device. Nothing has been sent.' : 'This browser cannot save drafts. Seal and download your letter to keep it.';
 });
 let sealedLetter = '';

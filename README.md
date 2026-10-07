@@ -21,13 +21,16 @@ The source configuration declares preview mode. It contains no newsletter or let
 - Downloadable calendar reminder to **check for news on 1 December**, explicitly not a confirmed launch date.
 - Signed dedication note download; no invented checkout or contact links.
 
+- Current-section navigation, a discreet reading-progress line, larger mobile tap targets and text, pointer-only hover feedback, and visible unsaved-draft status.
+- Native sharing with clean URLs where supported; an accessible copy-link dialog and manual-copy fallback otherwise.
+
 ## Delivery boundaries
 
 This is a complete design preview. Connecting actual letter delivery, a newsletter, signed ordering and social profiles requires the author’s chosen endpoints and profile URLs. Visitor email addresses are not collected. Drafts are kept only when the visitor explicitly saves them on their device. External Amazon links open with `noopener noreferrer`.
 
 ## Files
 
-`dist/index.html`, `dist/styles.css`, `dist/app.js`, `dist/transitions.js`, `dist/intro.js`, `dist/assets/` are the static site. `vercel.json` selects a static deployment and serves the `dist` directory. No build step is needed. SVG cover and font assets came from the reference’s publicly served assets; obtain the author's final cover before a commercial launch.
+`dist/index.html`, `dist/styles.css`, `dist/app.js`, `dist/transitions.js`, `dist/intro.js`, `dist/enhancements.js`, `dist/assets/` are the static site. `vercel.json` selects a static deployment and serves the `dist` directory. No build step is needed. SVG cover and font assets came from the reference’s publicly served assets; obtain the author's final cover before a commercial launch.
 
 ## Verification
 
@@ -36,3 +39,7 @@ JavaScript syntax, local assets, fragment destinations, and deployment packaging
 ## GitHub and Vercel deployment
 
 Import this repository into Vercel with project name `hishikachandhan` and production branch `main`. Keep the root directory at the repository root. `vercel.json` sets framework Other, skips installation/build, and serves `dist`. Connecting Vercel’s GitHub integration allows future pushes to deploy automatically.
+
+## Pending material
+
+[TASKS.md](TASKS.md) records the photographs, approved author/book content, genuine reviews, contact destinations, social URLs, and final deployment/share-card details to add when the user supplies them.

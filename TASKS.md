@@ -1,0 +1,29 @@
+# Website tasks
+
+## Waiting for the user’s material
+
+- [ ] Author photograph and permission to publish it; final crop and alt text.
+- [ ] Approved biography, author story, signature, and personal wording.
+- [ ] Final book cover, approved excerpts, accurate book details, and excerpt permissions.
+- [ ] Genuine reader reviews and permission to display names or quotes.
+- [ ] Instagram, Goodreads, Substack, and any other official profile URLs.
+- [ ] Signed-copy ordering destination and fulfilment details.
+- [ ] Letter delivery destination/provider and approved visitor-facing privacy wording.
+- [ ] Newsletter destination, if wanted.
+- [ ] Final production URL and approved imagery for the social sharing card, canonical URL, and sitemap.
+
+Keep the current preview labels, local-only letter saving, sample review labels, and pending-link states until their replacements are supplied. Do not invent personal details, testimonials, destinations, or book excerpts.
+
+## Implemented without new author or book material
+
+- [x] 6.2-second floral intro with the original moving logo, scroll locking, skip, and reduced-motion fade.
+- [x] Tap flowers/hearts, scroll reveals, theme preference, and motion pause control.
+- [x] Current-section navigation indicator and a discreet reading-progress line.
+- [x] Native sharing where available; copy-link dialog with manual-copy recovery.
+- [x] Draft-save confirmation and explicit unsaved-edit feedback; no automatic draft saving.
+- [x] Larger mobile controls/text and gentle pointer-only book/ribbon feedback.
+
+## Verification and delivery still to complete
+
+- [ ] Visual review on actual desktop and mobile browsers; current cloud browser cannot reach the local preview.
+- [ ] Confirm the user’s Vercel project is connected to this repository’s main branch, then verify the deployed commit and production URL.
