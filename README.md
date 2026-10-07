@@ -13,6 +13,9 @@ The source configuration declares preview mode. It contains no newsletter or let
 - Cream paper, rose ink, local Lora and Caveat fonts; original ribbon and floral SVG compositions.
 - Responsive scrapbook hero, detailed bookshelf, back-cover line, upcoming release, clearly illustrative reader wall, and a paper letterbox.
 - Slow ribbon motion, floral wish bursts, gentle scroll reveals, animated book and envelope details. A visible pause control and system reduced-motion support are included.
+- A 0.3-second floral paper opening plays on entry and reload. The footer refresh button and same-tab page navigation use a 0.3-second closing transition; new-tab links and downloads keep their normal behaviour. Native tab closing and browser refresh cannot reliably play an exit animation.
+- Small hearts, flowers, sparkles and bows bloom at a tap or click without intercepting input. Dragging/scrolling does not trigger them, and the number of live particles is capped. Smooth anchor scrolling and soft scroll reveals preserve native scrolling.
+- Dialogs fade closed with their backdrops; Escape, backdrop clicks and close buttons all restore focus. Pausing motion or enabling reduced motion skips these effects immediately.
 - Morning/evening themes, local quote bookmark, native accessible excerpt/signed-copy dialogs with Escape and focus return.
 - Letter type, message counter, validation, optional name, explicit local draft saving and plain-text download. Letters are never sent.
 - Downloadable calendar reminder to **check for news on 1 December**, explicitly not a confirmed launch date.
@@ -24,11 +27,11 @@ This is a complete design preview. Connecting actual letter delivery, a newslett
 
 ## Files
 
-`dist/index.html`, `dist/styles.css`, `dist/app.js`, `dist/assets/` are the static site. `vercel.json` selects a static deployment and serves the `dist` directory. No build step is needed. SVG cover and font assets came from the reference’s publicly served assets; obtain the author's final cover before a commercial launch.
+`dist/index.html`, `dist/styles.css`, `dist/app.js`, `dist/transitions.js`, `dist/assets/` are the static site. `vercel.json` selects a static deployment and serves the `dist` directory. No build step is needed. SVG cover and font assets came from the reference’s publicly served assets; obtain the author's final cover before a commercial launch.
 
 ## Verification
 
-JavaScript syntax, HTML structure, local assets, fragment destinations, SVG XML, and deployment packaging are checked before publishing. Browser visual/runtime QA is unavailable in this environment because the required managed Sites browser skill is not installed.
+JavaScript syntax, local assets, fragment destinations, and deployment packaging are checked before publishing. Transition logic checks cover opening/reload timing, dialog closing, reduced motion, pause/resume, taps versus scrolling, particle limits/cleanup, and back-cache recovery. Browser visual QA could not run because the cloud browser cannot reach the local preview server.
 
 ## GitHub and Vercel deployment
 

@@ -32,6 +32,8 @@ $('#theme-toggle').addEventListener('click', () => {
 });
 function setMotion(paused) {
   document.body.classList.toggle('motion-paused', paused);
+  document.documentElement.classList.toggle('motion-paused', paused);
+  if (paused) window.journalTransitions.settle(true);
   $('#motion-toggle').setAttribute('aria-pressed', String(paused));
   $('#motion-toggle').textContent = paused ? 'Resume the little animations' : 'Pause the little animations';
 }
@@ -39,6 +41,7 @@ setMotion(storage.get('motion') === 'paused');
 $('#motion-toggle').addEventListener('click', () => {
   const paused = !document.body.classList.contains('motion-paused');
   setMotion(paused); storage.set('motion', paused ? 'paused' : 'playing');
+  if (!paused) window.journalTransitions.settle(false);
 });
 if ('IntersectionObserver' in window && !reducedMotion.matches) {
   const observer = new IntersectionObserver((entries) => {
@@ -53,10 +56,11 @@ function openDialog(name, trigger) {
 }
 document.querySelectorAll('[data-open]').forEach((button) => button.addEventListener('click', () => openDialog(button.dataset.open, button)));
 document.querySelectorAll('dialog').forEach((dialog) => {
-  dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog.querySelector('.dialog-close').addEventListener('click', () => window.journalTransitions.closeDialog(dialog));
+  dialog.addEventListener('cancel', (event) => { event.preventDefault(); window.journalTransitions.closeDialog(dialog); });
   dialog.addEventListener('click', (event) => {
     const rect = dialog.getBoundingClientRect();
-    if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+    if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) window.journalTransitions.closeDialog(dialog);
   });
   dialog.addEventListener('close', () => dialogTrigger?.focus());
 });
