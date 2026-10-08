@@ -7,6 +7,13 @@
   const paper = screen.querySelector('.intro-paper');
   const garden = screen.querySelector('.intro-garden');
   const skip = screen.querySelector('.intro-skip');
+  const portrait = screen.querySelector('.intro-portrait');
+  const portraitPhoto = screen.querySelector('.intro-portrait img');
+  if (portraitPhoto) {
+    const hidePortrait = () => { portrait.hidden = true; };
+    portraitPhoto.addEventListener('error', hidePortrait, { once: true });
+    if (portraitPhoto.complete && !portraitPhoto.naturalWidth) hidePortrait();
+  }
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const duration = 6200, revealAt = 4300;
   const ease = 'cubic-bezier(.45,0,.2,1)';
@@ -67,7 +74,7 @@
     const rect = brand.getBoundingClientRect();
     const scale = Math.min(1.65, (window.innerWidth - 48) / rect.width);
     const x = (window.innerWidth - rect.width * scale) / 2;
-    const y = (window.innerHeight - rect.height * scale) / 2;
+    const y = (window.innerHeight - rect.height * scale) / 2 + Math.min(85, window.innerHeight * .12);
     slot = document.createElement('span');
     slot.className = 'intro-brand-slot';
     slot.setAttribute('aria-hidden', 'true');
@@ -82,6 +89,14 @@
     animate(brand, [
       { transform: origin }, { transform: center }
     ], { duration: 1300 });
+
+    if (portrait) animate(portrait, [
+      { opacity: 0, transform: 'translate(-50%,-50%) rotate(-12deg) scale(.78)', offset: 0 },
+      { opacity: 0, transform: 'translate(-50%,-50%) rotate(-12deg) scale(.78)', offset: .12 },
+      { opacity: 1, transform: 'translate(-50%,-50%) rotate(0deg) scale(1)', offset: .36 },
+      { opacity: 1, transform: 'translate(-50%,-50%) rotate(0deg) scale(1)', offset: revealAt / duration },
+      { opacity: 0, transform: 'translate(-50%,-58%) rotate(5deg) scale(1.04)', offset: 1 }
+    ], { duration, easing: 'linear' });
 
     const rx = Math.min(window.innerWidth * .34, 255);
     const ry = Math.min(window.innerHeight * .22, 145);
