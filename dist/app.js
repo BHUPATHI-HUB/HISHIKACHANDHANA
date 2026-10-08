@@ -127,16 +127,9 @@ form.addEventListener('change', updateDraftStatus);
 $('#save-draft').addEventListener('click', () => {
   const saved = storage.set('draft', draftSnapshot());
   if (saved) { lastSavedDraft = draftSnapshot(); draftButton.textContent = 'Draft saved ♡'; }
-  $('#draft-status').textContent = saved ? 'Draft saved on this device. Nothing has been sent.' : 'This browser cannot save drafts. Seal and download your letter to keep it.';
+  $('#draft-status').textContent = saved ? 'Draft saved on this device. Nothing has been sent.' : 'This browser cannot save drafts. Download a copy to keep your letter.';
 });
 let sealedLetter = '';
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  if (message.value.trim().length < 3) { message.setCustomValidity('Write at least three characters from your heart.'); message.reportValidity(); return; }
-  const signature = $('#letter-name').value.trim() || 'a soft-hearted reader';
-  sealedLetter = 'Dear Hishika,\n\n' + message.value.trim() + '\n\nWith love,\n' + signature + '\n\n— ' + $('#letter-type').value + '\nPrepared in the Rose Journal. This letter has not been delivered.';
-  openDialog('sealed', form.querySelector('[type="submit"]'));
-});
 $('#download-letter').addEventListener('click', () => { download('a-little-letter.txt', sealedLetter); toast('Your letter is ready to keep. Your words stay yours. ♡'); });
 function petals(trigger) {
   if (reducedMotion.matches || document.body.classList.contains('motion-paused')) return;
