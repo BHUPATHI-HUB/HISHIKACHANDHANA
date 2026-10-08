@@ -1,4 +1,10 @@
 /* A paper album, using the journal's existing colours and type. */
+.book-keepsake-seal{position:absolute;z-index:2;top:23px;right:16px;width:145px;height:145px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;border:1px solid var(--rose);border-radius:50%;background:var(--paper);color:var(--rose);text-align:center;box-shadow:0 0 0 5px var(--paper),0 0 0 6px var(--border),3px 8px 16px #533b4219;transform:rotate(9deg);transition:transform .4s ease}
+.seal-petals{font-size:21px;line-height:1}.seal-kicker{font-size:8px;letter-spacing:1.3px}.seal-title{font-family:var(--serif);font-size:21px;font-style:italic;line-height:1.15;letter-spacing:-.6px}.seal-footer{font-size:7px;letter-spacing:1px}.seal-footer>span{font-size:11px;margin-left:4px}
+.book-keepsake-seal:focus-visible{outline-offset:10px}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){body:not(.motion-paused) .book-keepsake-seal:hover{transform:rotate(3deg) translateY(-3px)}}
+@media(max-width:650px){.book-keepsake-seal{width:123px;height:123px;top:16px;right:12px;gap:6px}.seal-title{font-size:18px}.seal-kicker{font-size:7px}.seal-footer{font-size:6px}}
+@media(prefers-reduced-motion:reduce){.book-keepsake-seal{transition:none}}body.motion-paused .book-keepsake-seal{transition:none}
 .hero-book,.cover-button{padding:0;border:0;background:none;text-align:left;color:inherit}
 .hero-book:focus-visible,.cover-button:focus-visible{outline-offset:8px}
 .cover-invitation{background:none;border:0;border-bottom:1px solid var(--border);padding:12px 3px;min-height:44px;color:var(--rose);font-size:11px;letter-spacing:1px}.cover-invitation span{margin-left:8px;font-size:17px}
