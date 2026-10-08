@@ -2,7 +2,7 @@
 
 ## Waiting for the user’s material
 
-- [ ] Author photograph and permission to publish it; final crop and alt text.
+- [x] Four user-supplied author photographs integrated as a paper album, with full framing, captions and alt text.
 - [ ] Approved biography, author story, signature, and personal wording.
 - [ ] Final book cover, approved excerpts, accurate book details, and excerpt permissions.
 - [ ] Genuine reader reviews and permission to display names or quotes.
@@ -29,7 +29,7 @@ Keep the current preview labels, local-only letter saving, sample review labels,
 
 ## Verification and delivery still to complete
 
-- [ ] Visual review on actual desktop and mobile browsers; current cloud browser cannot reach the local preview.
+- [x] Album reviewed in the local browser at desktop and mobile widths; full-photo viewer, keyboard arrows, Escape and focus return checked.
 - [ ] Confirm the user’s Vercel project is connected to this repository’s main branch, then verify the deployed commit and production URL.
 
 ## Links supplied by the user on 8 October 2026

@@ -25,6 +25,12 @@ The source configuration declares preview mode. It contains no newsletter or let
 - Current-section navigation, a discreet reading-progress line, larger mobile tap targets and text, pointer-only hover feedback, and visible unsaved-draft status.
 - Native sharing with clean URLs where supported; an accessible copy-link dialog and manual-copy fallback otherwise.
 
+## Photo album
+
+The four photos supplied on 8 October 2026 appear in a paper album after the bookshelf: a featured author portrait and three companion snapshots. All four retain their full original framing. The site serves JPEG copies totalling 543,952 bytes, with lazy loading and explicit dimensions; the original uploads are untouched. A native dialog offers the full photo, previous/next controls, arrow-key navigation, selectable thumbnails, loading/error feedback and Escape/close with focus return. Existing journal colours, type, evening mode and motion preferences are reused. Add future photos to the album markup and thumbnail group together; `album.js` reads captions and images from the actual photo buttons.
+
+This change starts from published `main` at `3971cacf4aaee356e4f634a83f11dbe3f9b1516e`. Unavailable changes from the separate hosted workspace have not been reconstructed or included.
+
 ## Delivery boundaries
 
 This is a complete design preview. Connecting actual letter delivery, a newsletter, signed ordering and the remaining Goodreads profile requires the author’s chosen endpoints and URLs. Visitor email addresses are not collected. Drafts are kept only when the visitor explicitly saves them on their device. All social and bookstore links open with `noopener noreferrer`.

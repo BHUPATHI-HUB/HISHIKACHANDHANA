@@ -60,7 +60,7 @@
 
   const progress = document.querySelector('.reading-progress span');
   const links = [...document.querySelectorAll('nav a[href^="#"]')];
-  const sections = ['books', 'december', 'letters', 'letterbox'].map(id => document.getElementById(id));
+  const sections = [...new Set([...links.map(link => link.hash.slice(1)), 'letterbox'])].map(id => document.getElementById(id)).filter(Boolean);
   let queued = false;
   function updateNavigation() {
     queued = false;
