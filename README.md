@@ -27,6 +27,8 @@ The source configuration declares preview mode. It contains no newsletter or let
 
 ## Photo album
 
+The supplied complete paperback artwork is now used in the hero and bookshelf. `cover-front.jpg` is a presentation crop of its right/front panel; `cover-wrap.jpg` preserves the complete back, spine and front. Clicking either displayed book or “Turn it over” opens the full artwork and readable back-cover copy. The featured quote now matches the supplied artwork. Original uploads remain untouched. Earlier reference analysis below/above describes the previous placeholder state; that cover limitation is resolved by this upload.
+
 The four photos supplied on 8 October 2026 appear in a paper album after the bookshelf: a featured author portrait and three companion snapshots. All four retain their full original framing. The site serves JPEG copies totalling 543,952 bytes, with lazy loading and explicit dimensions; the original uploads are untouched. A native dialog offers the full photo, previous/next controls, arrow-key navigation, selectable thumbnails, loading/error feedback and Escape/close with focus return. Existing journal colours, type, evening mode and motion preferences are reused. Add future photos to the album markup and thumbnail group together; `album.js` reads captions and images from the actual photo buttons.
 
 This change starts from published `main` at `3971cacf4aaee356e4f634a83f11dbe3f9b1516e`. Unavailable changes from the separate hosted workspace have not been reconstructed or included.

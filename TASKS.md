@@ -4,7 +4,8 @@
 
 - [x] Four user-supplied author photographs integrated as a paper album, with full framing, captions and alt text.
 - [ ] Approved biography, author story, signature, and personal wording.
-- [ ] Final book cover, approved excerpts, accurate book details, and excerpt permissions.
+- [x] Supplied full paperback artwork integrated in hero, bookshelf and full-cover viewer; featured back-cover line corrected.
+- [ ] Approved poem excerpts and remaining book-detail verification.
 - [ ] Genuine reader reviews and permission to display names or quotes.
 - [x] Instagram and Substack profile URLs supplied and connected.
 - [ ] Goodreads and any other official profile URLs.

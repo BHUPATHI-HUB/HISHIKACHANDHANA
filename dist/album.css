@@ -1,4 +1,14 @@
 /* A paper album, using the journal's existing colours and type. */
+.hero-book,.cover-button{padding:0;border:0;background:none;text-align:left;color:inherit}
+.hero-book:focus-visible,.cover-button:focus-visible{outline-offset:8px}
+.cover-invitation{background:none;border:0;border-bottom:1px solid var(--border);padding:12px 3px;min-height:44px;color:var(--rose);font-size:11px;letter-spacing:1px}.cover-invitation span{margin-left:8px;font-size:17px}
+.cover-dialog{max-width:980px;width:calc(100vw - 32px);max-height:92dvh;overflow:auto;padding:38px 42px;background:var(--paper);color:var(--ink)}
+.cover-dialog h2{font-size:38px;margin:16px 0 25px}.cover-dialog .dialog-close{width:44px;height:44px;top:16px;right:16px}
+.cover-wrap{margin:0}.cover-wrap img{width:100%;height:auto;border:1px solid var(--border);border-radius:2px}.cover-wrap figcaption{display:flex;justify-content:center;gap:15px;margin:12px 0 27px;font-size:9px;letter-spacing:1.6px;color:var(--muted)}
+.cover-reading{max-width:600px;margin:0 auto;padding:24px 0;border-block:1px solid var(--border)}.cover-reading blockquote{font-family:var(--serif);font-size:28px;line-height:1.4;margin:16px 0;color:var(--rose)}.cover-reading p{font-size:14px;line-height:1.8}.cover-reading .hand{font-size:26px;line-height:1.4;margin:25px 0 0;color:var(--rose)}
+.cover-actions{display:flex;justify-content:center;flex-wrap:wrap;align-items:center;gap:22px;margin-top:26px}.cover-artwork-link{font-size:12px;text-decoration:underline;text-underline-offset:5px;min-height:44px;display:flex;align-items:center;gap:10px}
+body:has(.cover-dialog[open]){overflow:hidden}
+@media(max-width:650px){.cover-dialog{padding:34px 20px 26px;width:calc(100vw - 20px);max-height:94dvh}.cover-dialog h2{font-size:30px;padding-right:15px}.cover-dialog>.eyebrow{font-size:8px;max-width:calc(100% - 40px)}.cover-wrap figcaption{font-size:8px;gap:10px}.cover-reading blockquote{font-size:25px}.cover-actions{gap:12px}.cover-reading p{font-size:14px}}
 .photo-album{max-width:1240px;padding-top:35px;padding-bottom:80px}
 .pause-section{overflow:clip}
 .album-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:35px;margin-bottom:42px}
