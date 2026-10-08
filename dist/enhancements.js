@@ -40,6 +40,24 @@
     } finally { copy.disabled = false; }
   });
 
+  // Let the real link open normally; only its decoration receives a little bloom.
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const blooms = new Map();
+  function clearBlooms() {
+    blooms.forEach((timer, link) => { clearTimeout(timer); link.classList.remove('link-celebrate'); });
+    blooms.clear();
+  }
+  document.querySelectorAll('[data-floral-link]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (motion.matches || document.body.classList.contains('motion-paused') || window.journalIntro?.active) return;
+      clearTimeout(blooms.get(link));
+      link.classList.add('link-celebrate');
+      blooms.set(link, setTimeout(() => { link.classList.remove('link-celebrate'); blooms.delete(link); }, 1000));
+    });
+  });
+  motion.addEventListener('change', () => { if (motion.matches) clearBlooms(); });
+  window.addEventListener('pageshow', event => { if (event.persisted) clearBlooms(); });
+
   const progress = document.querySelector('.reading-progress span');
   const links = [...document.querySelectorAll('nav a[href^="#"]')];
   const sections = ['books', 'december', 'letters', 'letterbox'].map(id => document.getElementById(id));

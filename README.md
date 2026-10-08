@@ -6,7 +6,7 @@ A responsive, buildless poetry website inspired by the supplied reference https:
 
 The reference introduces poet Hishika Chandan and the debut poetry collection **Us, Unscripted**. Its scrapbook style uses handwritten type, blush and blue paper, flowers, taped notes and an illustrated cover. The navigation leads to a bookshelf, December 2026 teaser, sample reader notes and a letterbox. Book details list 141 paperback pages, Writer’s Pocket, publication on 21 September 2026 and a reading age of 15+. The Amazon product destination is `https://www.amazon.in/dp/9379034296`.
 
-The source configuration declares preview mode. It contains no newsletter or letterbox endpoint, signed-copy order URL, or social-profile URLs. Reader notes are samples. The actual cover JPG returns 404 and the original renders an SVG placeholder. December’s exact release date, title and final cover are unannounced. This recreation preserves those distinctions; it does not assert that the author commissioned or approved the design.
+The source configuration declares preview mode. It contains no newsletter or letterbox endpoint, signed-copy order URL, or social-profile URLs. The user subsequently supplied Instagram, Substack, Amazon, Flipkart, and Google Play Books URLs; those are now connected through floral notes and keepsake tickets. Reader notes are samples. The actual cover JPG returns 404 and the original renders an SVG placeholder. December’s exact release date, title and final cover are unannounced. This recreation preserves those distinctions; it does not assert that the author commissioned or approved the design.
 
 ## Design and interactions
 
@@ -20,13 +20,14 @@ The source configuration declares preview mode. It contains no newsletter or let
 - Letter type, message counter, validation, optional name, explicit local draft saving and plain-text download. Letters are never sent.
 - Downloadable calendar reminder to **check for news on 1 December**, explicitly not a confirmed launch date.
 - Signed dedication note download; no invented checkout or contact links.
+- The five supplied social/bookstore links open in new tabs. Their paper notes and tickets gently lift and bloom on hover, keyboard focus, or tap; motion preferences remain respected.
 
 - Current-section navigation, a discreet reading-progress line, larger mobile tap targets and text, pointer-only hover feedback, and visible unsaved-draft status.
 - Native sharing with clean URLs where supported; an accessible copy-link dialog and manual-copy fallback otherwise.
 
 ## Delivery boundaries
 
-This is a complete design preview. Connecting actual letter delivery, a newsletter, signed ordering and social profiles requires the author’s chosen endpoints and profile URLs. Visitor email addresses are not collected. Drafts are kept only when the visitor explicitly saves them on their device. External Amazon links open with `noopener noreferrer`.
+This is a complete design preview. Connecting actual letter delivery, a newsletter, signed ordering and the remaining Goodreads profile requires the author’s chosen endpoints and URLs. Visitor email addresses are not collected. Drafts are kept only when the visitor explicitly saves them on their device. All social and bookstore links open with `noopener noreferrer`.
 
 ## Files
 
@@ -34,7 +35,7 @@ This is a complete design preview. Connecting actual letter delivery, a newslett
 
 ## Verification
 
-JavaScript syntax, local assets, fragment destinations, and deployment packaging are checked before publishing. Transition logic checks cover opening/reload timing, dialog closing, reduced motion, pause/resume, taps versus scrolling, particle limits/cleanup, and back-cache recovery. Browser visual QA could not run because the cloud browser cannot reach the local preview server.
+JavaScript syntax, local assets, fragment destinations, and deployment packaging are checked before publishing. Transition logic checks cover opening/reload timing, dialog closing, reduced motion, pause/resume, taps versus scrolling, particle limits/cleanup, and back-cache recovery. Run `node --test` from the repository root to repeat the dependency-free checks in `tests/`. They cover the intro lifecycle, sharing and drafts, navigation, motion controls, and the exact supplied links with safe new-tab behaviour. These are logic/structure checks. Browser visual QA could not run because the cloud browser cannot reach the local preview server.
 
 ## GitHub and Vercel deployment
 
