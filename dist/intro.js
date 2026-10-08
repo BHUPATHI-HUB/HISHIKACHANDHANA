@@ -98,8 +98,8 @@
       { opacity: 0, transform: 'translate(-50%,-58%) rotate(5deg) scale(1.04)', offset: 1 }
     ], { duration, easing: 'linear' });
 
-    const rx = Math.min(window.innerWidth * .34, 255);
-    const ry = Math.min(window.innerHeight * .22, 145);
+    const rx = Math.min(window.innerWidth * .40, 350);
+    const ry = Math.min(window.innerHeight * .34, 245);
     for (let i = 0; i < 14; i++) {
       const flower = i < 8;
       const angle = (i / (flower ? 8 : 6)) * Math.PI * 2 + .22;
@@ -114,11 +114,11 @@
       const starts = 1800 + (i % 8) * 115;
       const pose = (s, dx = 0, dy = 0, turn = 0) => `translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px)) rotate(${turn}deg) scale(${s})`;
       animate(node, [
-        { opacity: 0, transform: pose(.12, 0, 12, -18), offset: 0 },
-        { opacity: 0, transform: pose(.12, 0, 12, -18), offset: starts / duration, easing: ease },
-        { opacity: flower ? .85 : .65, transform: pose(1, 0, 0, 4), offset: (starts + 1250) / duration, easing: 'ease-in-out' },
-        { opacity: flower ? .85 : .65, transform: pose(1.04, 0, -6, 9), offset: revealAt / duration, easing: ease },
-        { opacity: 0, transform: pose(1.13, px * .4, py * .4 - 12, 18), offset: 1 }
+        { opacity: 0, transform: pose(.95, 0, 0, 4), offset: 0 },
+        { opacity: 0, transform: pose(.95, 0, 0, 4), offset: starts / duration, easing: ease },
+        { opacity: flower ? .22 : .14, transform: pose(1, 0, 0, 4), offset: (starts + 1250) / duration, easing: 'ease-in-out' },
+        { opacity: flower ? .22 : .14, transform: pose(1, 0, 0, 4), offset: revealAt / duration, easing: ease },
+        { opacity: 0, transform: pose(1, 0, 0, 4), offset: 1 }
       ], { duration, easing: 'linear' });
     }
     animate(paper, [{ opacity: 1, offset: 0 }, { opacity: 1, offset: revealAt / duration, easing: ease }, { opacity: 0, offset: 1 }], { duration, easing: 'linear' });

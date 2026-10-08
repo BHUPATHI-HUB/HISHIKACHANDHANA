@@ -29,7 +29,7 @@ html.intro-active:not(.intro-revealing) #journal-page *{animation-play-state:pau
 .intro-screen{display:none;position:fixed;inset:0;z-index:100;isolation:isolate;overflow:hidden;touch-action:none;color:var(--ink)}
 html.intro-pending .intro-screen,html.intro-active .intro-screen{display:block}
 .intro-screen[hidden]{display:none!important}
-.intro-paper{position:absolute;inset:0;background:radial-gradient(ellipse at 36% 46%,#f3d6de66,transparent 60%),radial-gradient(ellipse at 69% 55%,#e9e2ee77,transparent 55%),var(--paper)}
+.intro-paper{position:absolute;inset:0;background:var(--paper)}
 .intro-garden{position:absolute;inset:0;pointer-events:none}
 .intro-blossom,.intro-petal{position:absolute;width:var(--flower-size);height:var(--flower-size);opacity:0;pointer-events:none;will-change:transform,opacity}
 .intro-blossom svg{display:block;width:100%;height:100%}
